@@ -10,13 +10,16 @@ class Search extends React.Component {
 		
 		return (
 			<form>
-				<input 
+				<table className="search"><tbody><tr>
+				<td className="min"><img src="filter.svg" alt="Type in the search bar to filter" /></td>
+				<td><input 
 					type="text" 
 					placeholder="Type to Filter" 
 					ref={(val) => {this.b_filter = val}}
 					onChange={this.filter_update.bind(this)}
 					className="search-bar"
-				/>
+				/></td>
+				</tr></tbody></table>
 			</form>
 		);
 	}

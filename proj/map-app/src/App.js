@@ -13,6 +13,7 @@ class App extends React.Component {
       filterText: '',
       selectedBuilding: 0,
 			add_mode: false,
+			del_mode: false,
 			data: this.props.data,
 			next_free_address: 149
     };
@@ -30,6 +31,10 @@ class App extends React.Component {
 
 	add_building_toggle() {
 		this.setState({add_mode: !this.state.add_mode})
+	}
+
+	del_building_toggle(){
+		this.setState({del_mode: !this.state.del_mode})
 	}
 
 	add_building_on_submit(new_building){
@@ -74,21 +79,25 @@ class App extends React.Component {
 					close_callback={this.add_building_toggle.bind(this)} 
 					submit_callback={this.add_building_on_submit.bind(this)}
 				/>
-				<ButtonTray add_building_callback={this.add_building_toggle.bind(this)} />
+				<ButtonTray 
+					add_building_callback={this.add_building_toggle.bind(this)}
+					del_building_callback={this.del_building_toggle.bind(this)}
+					add_mode={this.state.add_mode}
+					del_mode={this.state.del_mode}
+				/>
         <main>
           <div className="row">
             <div className="column1">
               <div className="tableWrapper">
                 <table className="table table-striped table-hover"><tbody>
-                  <tr>
-                    <td>
-                      <b>Code Building</b>
-                    </td>
-                  </tr>
+									<tr>
+										<td><h2>Directory listings</h2></td>
+									</tr>
                   <BuildingList
                     data={this.state.data}
 										filter={this.state.filterText}
 										sel_up={this.selectedUpdate.bind(this)}
+										del_button_enabled={this.state.del_mode}
 										del_entry={this.del_entry.bind(this)}
                   />
                 </tbody></table>

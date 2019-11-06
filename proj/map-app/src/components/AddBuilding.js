@@ -25,11 +25,11 @@ class AddBuilding extends React.Component {
 			<form
 				className={classes}
 			>
-				<table className="add-dialog-header"><tbody>
+				<table className="add-dialog-header no-clickable-bottom"><tbody>
 					<tr><th>Add new building</th><td 
 						className="clickable" 
 						onClick={() => this.props.close_callback()}>
-							<div>X</div>
+							<div><img className="cancel-btn" src="x-circle.svg" alt="cancel"/></div>
 					</td></tr>
 				</tbody></table>
 				<table className="add-dialog-body"><tbody>
@@ -79,7 +79,7 @@ class AddBuilding extends React.Component {
 						</input></td>
 					</tr>
 				</tbody></table>
-				<div className="submit-button clickable" onClick={() => this.on_submit()}><div>Add</div></div>
+				<div className="submit-button clickable" onClick={() => this.on_submit()}><div><img src="plus-square.svg" alt="Add new building" /> Add</div></div>
 			</form>
 		)
 

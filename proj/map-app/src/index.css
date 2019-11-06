@@ -43,19 +43,24 @@ input[type="text"]:focus {
 	border-bottom: 2px solid #5c5;
 	color: #aca;
 }
-/*input[type='text'] {
-	margin: 1rem;
-	background: #565;
-	font-size: 1.3rem;
-	border: none;
-	box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
-	border-radius: 3px;
-	padding: 0 2rem;
-	width: calc(100% - 2rem);
-	height: 4rem;
-}*/
+
+table.search {
+	width: 80%;
+	margin: auto;
+}
+
+table.search img {
+	filter: invert(82%) sepia(13%) saturate(485%) hue-rotate(71deg) brightness(95%) contrast(86%);
+}
+
+table.search td.min {
+	width: 1%
+}
 
 /* ##### NamesList ##### */
+table {
+	border-collapse: collapse;
+}
 tr {
 	padding: 0;
 }
@@ -69,10 +74,12 @@ th {
 
 .clickable td {
 	border: 1px solid transparent;
+	transition: border-bottom 0.2s;
 }
 
 .clickable div {
 	border: 1px solid transparent;
+	transition: border-bottom 0.2s;
 }
 
 .clickable:hover td {
@@ -85,6 +92,18 @@ th {
 	position: left;
 	cursor: pointer;
 	border-bottom: 1px solid #aca;
+}
+
+.no-clickable-bottom .clickable div {
+	border-bottom: none !important;
+}
+
+.no-clickable-bottom .clickable:hover div {
+	border-bottom: none !important;
+}
+
+.building-entry b {
+	color: #5a5;
 }
 
 /* ##### Columns ##### */
@@ -165,6 +184,11 @@ form.hidden {
 	visibility: hidden;
 }
 
+.hidden{
+	opacity: 0;
+	visibility: hidden;
+}
+
 form.add-dialog table{
 	width: 100%;
 }
@@ -179,7 +203,7 @@ form.add-dialog th {
 }
 
 form.add-dialog table.add-dialog-header {
-	padding: 0.5em 0 0.5em 0;
+	margin: 1em 0 0.5em 0;
 }
 
 form.add-dialog table.add-dialog-header th {
@@ -187,6 +211,7 @@ form.add-dialog table.add-dialog-header th {
 }
 
 form.add-dialog table.add-dialog-body {
+	border-collapse: unset;
 	border-spacing: 0 1em;
 }
 
@@ -196,7 +221,63 @@ form.add-dialog div.submit-button {
 	font-size: 150%;
 }
 
+img.cancel-btn {
+	filter: invert(56%) sepia(85%) saturate(3644%) hue-rotate(328deg) brightness(94%) contrast(99%);
+	margin: auto;
+}
+
+form.add-dialog div.submit-button img {
+	size: 150%;
+	filter: invert(82%) sepia(13%) saturate(485%) hue-rotate(71deg) brightness(95%) contrast(86%);
+}
+
 /* ##### Button Tray ##### */
 div.button-tray {
 	margin: 1em;
+}
+
+/* ##### Remove Entry ##### */
+td.del-button {
+	color: #E55;
+	transition: color 0.5s, background-color 0.5s;
+}
+
+td.del-button:hover {
+	cursor: pointer;
+	background-color: #E55;
+	color: #FFF;
+}
+
+td.del-button img {
+	filter: invert(56%) sepia(85%) saturate(3644%) hue-rotate(328deg) brightness(94%) contrast(99%);
+	transition: filter 0.5s;
+}
+
+td.del-button:hover img{
+	filter: invert(100%) sepia(23%) saturate(2%) hue-rotate(125deg) brightness(112%) contrast(101%);
+}
+
+img.del-btn {
+	filter: invert(56%) sepia(85%) saturate(3644%) hue-rotate(328deg) brightness(94%) contrast(99%);
+	margin: 0 1em;
+}
+
+img.add-btn {
+	filter: invert(82%) sepia(13%) saturate(485%) hue-rotate(71deg) brightness(95%) contrast(86%);
+	margin: 0 1em;
+	
+}
+
+tr.delmode td {
+	color: #E55;
+	transition: color 0.5s, background-color 0.5s
+}
+
+tr.active img.del-btn {
+	filter: invert(100%) sepia(23%) saturate(2%) hue-rotate(125deg) brightness(112%) contrast(101%);
+}
+
+tr.active td {
+	color: #FFF;
+	background-color: #E55;
 }
